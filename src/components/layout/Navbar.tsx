@@ -1,31 +1,37 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAppStore } from '@/store/useAppStore'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
 import { Button } from '@/components/ui/Button'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { LocaleToggle } from '@/components/ui/LocaleToggle'
+import { gsap, ScrollToPlugin } from '@/utils/gsapConfig'
+
+// ScrollToPlugin ya registrado en gsapConfig — referencia para evitar tree-shaking
+void ScrollToPlugin
 
 const navItems = [
-  { href: '#inicio', label: 'nav.home' },
-  { href: '#proyectos', label: 'nav.projects' },
-  { href: '#habilidades', label: 'nav.skills' },
-  { href: '#experiencia', label: 'nav.experience' },
-  { href: '#contacto', label: 'nav.contact' },
+  { href: '#inicio',      label: 'Inicio' },
+  { href: '#proyectos',   label: 'Proyectos' },
+  { href: '#habilidades', label: 'Habilidades' },
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#contacto',    label: 'Contacto' },
 ]
 
 export function Navbar() {
   const { isMenuOpen, toggleMenu, activeSection } = useAppStore()
-  const [lottieInstance, setLottieInstance] = useState<any>(null)
 
   useScrollSpy()
 
   const handleNavClick = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-    toggleMenu()
+    // GSAP ScrollToPlugin: desplazamiento suave con curva power3.inOut
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: href,
+      ease: 'power3.inOut',
+      overwrite: 'auto', // cancela scroll anterior si se hace clic rápido
+    })
+    if (isMenuOpen) toggleMenu()
   }
 
   return (
@@ -47,7 +53,7 @@ export function Navbar() {
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.href ? 'text-primary' : 'text-muted-foreground'
+                  activeSection === item.href ? 'text-primary' : 'text-secondary'
                 }`}
               >
                 {item.label}
@@ -67,17 +73,12 @@ export function Navbar() {
               className="md:hidden"
               onClick={toggleMenu}
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                  d={isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
                 />
               </svg>
             </Button>
@@ -98,8 +99,8 @@ export function Navbar() {
                   <button
                     key={item.href}
                     onClick={() => handleNavClick(item.href)}
-                    className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-accent ${
-                      activeSection === item.href ? 'bg-accent text-primary' : 'text-muted-foreground'
+                    className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-card ${
+                      activeSection === item.href ? 'bg-card text-primary' : 'text-secondary'
                     }`}
                   >
                     {item.label}

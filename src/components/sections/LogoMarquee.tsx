@@ -1,69 +1,69 @@
-import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import type { LogoItem } from '@/types'
+import { logoItems } from '@/data/logos'
 
-// Mock logos - replace with actual logo images
-const logos = [
-  { name: 'TechCorp', src: '/images/logos/logo-1.png' },
-  { name: 'InnovateTech', src: '/images/logos/logo-2.png' },
-  { name: 'DevSolutions', src: '/images/logos/logo-3.png' },
-  { name: 'CodeMasters', src: '/images/logos/logo-4.png' },
-]
+// SVGs importados como raw string (fill="currentColor" en todos)
+import bancoBolSVG from '@/svg/BancoBolivariano.svg?raw'
+import grupoDifSVG from '@/svg/GrupoDifare.svg?raw'
+import telconetSVG from '@/svg/Telconet.svg?raw'
+import claroSVG    from '@/svg/claro.svg?raw'
 
-export function LogoMarquee() {
-  const marqueeRef = useRef<HTMLDivElement>(null)
+// Mapa id → markup SVG
+const svgMap: Record<string, string> = {
+  'banco-bolivariano': bancoBolSVG,
+  'grupo-difare':      grupoDifSVG,
+  'telconet':          telconetSVG,
+  'claro':             claroSVG,
+}
+
+interface LogoCardProps {
+  logo: LogoItem
+}
+
+function LogoCard({ logo }: LogoCardProps) {
+  const markup = svgMap[logo.id]
+  if (!markup) return null
 
   return (
-    <section className="py-16 bg-bg">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-2xl font-montserrat font-bold text-center mb-8 text-primary"
-        >
-          Empresas donde he trabajado
-        </motion.h2>
+    /*
+     * FIX LOOP: padding simétrico en X en lugar de gap en el contenedor padre.
+     * Así el espacio entre el último logo y el primero (al reiniciar)
+     * es idéntico al espacio entre cualquier par consecutivo → sin salto visual.
+     *
+     * h-[62px]: ~10% más grande que h-14 (56px)
+     * w-auto + [&_svg]:h-full: el SVG escala por altura, ancho proporcional
+     * → elimina el espacio enorme entre logos de diferentes proporciones
+     */
+    <div
+      aria-label={logo.name}
+      role="img"
+      className="flex-shrink-0 h-[62px] px-8 flex items-center [&_svg]:h-full [&_svg]:w-auto [&_svg]:max-w-none [&_svg]:block"
+      style={{ color: '#64748B' }}
+      dangerouslySetInnerHTML={{ __html: markup }}
+    />
+  )
+}
 
-        <div
-          ref={marqueeRef}
-          className="flex overflow-hidden"
-        >
-          <motion.div
-            className="flex gap-8 items-center"
-            animate={{
-              x: [0, -100 * logos.length],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: 'loop',
-                duration: 20,
-                ease: 'linear',
-              },
-            }}
-          >
-            {[...logos, ...logos].map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-32 h-16 bg-card rounded-lg flex items-center justify-center border"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.name}
-                  className="max-w-full max-h-full object-contain grayscale hover:grayscale-0 transition-all"
-                  onError={(e) => {
-                    // Fallback to text if image fails
-                    e.currentTarget.style.display = 'none'
-                    e.currentTarget.nextElementSibling!.textContent = logo.name
-                  }}
-                />
-                <span className="text-sm font-medium text-muted-foreground hidden">
-                  {logo.name}
-                </span>
-              </div>
-            ))}
-          </motion.div>
+export function LogoMarquee() {
+  /*
+   * Array duplicado [A B C D A B C D].
+   * La animación va de translateX(0) → translateX(-50%).
+   * Con padding simétrico en cada item, el punto -50% cae exactamente
+   * donde empieza el segundo set → reinicio invisible.
+   */
+  const doubled = [...logoItems, ...logoItems]
+
+  return (
+    <section id="empresas" aria-label="Empresas con las que he trabajado" className="py-16 bg-bg">
+      <h2 className="text-2xl font-montserrat font-bold text-center mb-10 text-primary">
+        Empresas con las que he trabajado
+      </h2>
+
+      {/* overflow-hidden: logos salen/entran como el sol en el horizonte */}
+      <div className="overflow-hidden w-full">
+        <div className="marquee-track flex items-center w-max">
+          {doubled.map((logo, index) => (
+            <LogoCard key={`${logo.id}-${index}`} logo={logo} />
+          ))}
         </div>
       </div>
     </section>

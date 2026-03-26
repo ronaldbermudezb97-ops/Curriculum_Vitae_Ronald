@@ -1,10 +1,6 @@
 import { useRef, useEffect } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { experienceNodes } from '@/data/experience'
 import { Badge } from '@/components/ui/Badge'
-
-gsap.registerPlugin(ScrollTrigger)
 
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -15,42 +11,56 @@ export function ExperienceSection() {
     const path = pathRef.current
     if (!section || !path) return
 
-    // Create timeline path
-    const pathLength = path.getTotalLength()
-    gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength })
+    const initGSAP = async () => {
+      const { gsap } = await import('gsap')
+      const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+      gsap.registerPlugin(ScrollTrigger)
 
-    // Animate path on scroll
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
-      },
-    })
+      // Create timeline path
+      const pathLength = path.getTotalLength()
+      gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength })
 
-    // Animate nodes
-    experienceNodes.forEach((node, index) => {
-      const nodeElement = section.querySelector(`[data-node="${index}"]`)
-      if (nodeElement) {
-        gsap.fromTo(
-          nodeElement,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            scrollTrigger: {
-              trigger: nodeElement,
-              start: 'top 80%',
-              end: 'bottom 20%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      }
-    })
+      // Animate path on scroll
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+        },
+      })
+
+      // Animate nodes
+      experienceNodes.forEach((node, index) => {
+        const nodeElement = section.querySelector(`[data-node="${index}"]`)
+        if (nodeElement) {
+          gsap.fromTo(
+            nodeElement,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              scrollTrigger: {
+                trigger: nodeElement,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          )
+        }
+      })
+    }
+
+    initGSAP()
+
+    return () => {
+      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
+        ScrollTrigger.getAll().forEach(t => t.kill())
+      })
+    }
   }, [])
 
   return (
@@ -59,7 +69,6 @@ export function ExperienceSection() {
         <h2 className="text-4xl font-montserrat font-bold text-center mb-16 text-primary">
           Experiencia Profesional
         </h2>
-
         <div className="relative max-w-4xl mx-auto">
           {/* SVG Timeline */}
           <svg
@@ -76,7 +85,6 @@ export function ExperienceSection() {
               strokeLinecap="round"
             />
           </svg>
-
           {/* Timeline Nodes */}
           {experienceNodes.map((node, index) => (
             <div
@@ -103,7 +111,6 @@ export function ExperienceSection() {
                   </div>
                 </div>
               </div>
-
               {/* Timeline Dot */}
               <div className="w-4 h-4 bg-primary rounded-full border-4 border-bg relative z-10" />
             </div>

@@ -1,68 +1,79 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { testimonials } from '@/data/testimonials'
-import { Card } from '@/components/ui/Card'
+import type { Testimonial } from '@/types'
+import { cn } from '@/utils/cn'
+
+interface TestimonialCardProps {
+  testimonial: Testimonial
+}
+
+function TestimonialCard({ testimonial }: TestimonialCardProps) {
+  return (
+    <div className="flex-shrink-0 w-80 bg-card rounded-xl p-6 border border-card shadow-sm">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-4">
+        <img
+          src={testimonial.avatar}
+          alt={testimonial.name}
+          className="w-12 h-12 rounded-full object-cover"
+          onError={(e) => {
+            e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=random`
+          }}
+        />
+        <div>
+          <h3 className="font-semibold text-primary">{testimonial.name}</h3>
+          <p className="text-sm text-secondary">
+            {testimonial.role} · {testimonial.company}
+          </p>
+        </div>
+      </div>
+
+      {/* Stars */}
+      <div className="flex gap-0.5 mb-3">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span
+            key={i}
+            className={`text-base ${i < testimonial.rating ? 'text-yellow-400' : 'text-secondary opacity-30'}`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+
+      {/* Quote */}
+      <blockquote className="text-secondary text-sm leading-relaxed italic">
+        "{testimonial.quote}"
+      </blockquote>
+    </div>
+  )
+}
 
 export function TestimonialsSection() {
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Duplicar para el loop continuo sin salto visual
+  const doubled = [...testimonials, ...testimonials]
+
   return (
-    <section id="referencias" className="py-20 bg-bg">
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-4xl font-montserrat font-bold text-center mb-12 text-primary"
-        >
+    <section id="referencias" aria-label="Referencias profesionales" className="py-20 bg-bg">
+      <div className="container mx-auto px-4 mb-12">
+        <h2 className="text-4xl font-montserrat font-bold text-center text-primary">
           Referencias
-        </motion.h2>
+        </h2>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card variant="testimonial" className="h-full">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=random`
-                      }}
-                    />
-                    <div>
-                      <h3 className="font-semibold">{testimonial.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.role} • {testimonial.company}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex mb-4">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span
-                        key={i}
-                        className={`text-lg ${
-                          i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'
-                        }`}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-
-                  <blockquote className="text-muted-foreground italic">
-                    "{testimonial.quote}"
-                  </blockquote>
-                </div>
-              </Card>
-            </motion.div>
+      {/* Slider — overflow-hidden crea el efecto "entra desde un lado" */}
+      <div
+        className={cn('overflow-hidden', isPaused && 'testimonials-paused')}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="testimonials-track flex gap-6 w-max px-6">
+          {doubled.map((testimonial, index) => (
+            <TestimonialCard
+              key={`${testimonial.name}-${index}`}
+              testimonial={testimonial}
+            />
           ))}
         </div>
       </div>

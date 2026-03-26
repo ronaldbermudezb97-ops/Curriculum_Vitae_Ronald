@@ -82,3 +82,9 @@ export interface SectionDividerProps {
   direction?: 'left' | 'right';
   baseVelocity?: number;
 }
+
+// Logo Marquee
+export interface LogoItem {
+  id:   string;  // clave para el svgMap
+  name: string;  // texto accesible (aria-label)
+}

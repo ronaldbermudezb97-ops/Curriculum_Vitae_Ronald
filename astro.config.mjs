@@ -7,5 +7,10 @@ export default defineConfig({
   output: 'static',
   build: {
     inlineStylesheets: 'auto'
+  },
+  vite: {
+    ssr: {
+      noExternal: ['gsap', '@gsap/react']
+    }
   }
 })

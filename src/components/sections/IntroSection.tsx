@@ -24,7 +24,7 @@ export function IntroSection() {
   return (
     <section id="intro" className="min-h-screen flex items-center justify-center bg-bg">
       <motion.div
-        className="text-center"
+        className="relative z-10 text-center"
         variants={container}
         initial="hidden"
         animate="show"

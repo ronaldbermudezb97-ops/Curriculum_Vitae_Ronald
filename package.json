@@ -13,6 +13,7 @@
     "@astrojs/react": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
     "@emailjs/browser": "^4.4.1",
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "astro": "^4.0.0",
     "class-variance-authority": "^0.7.1",

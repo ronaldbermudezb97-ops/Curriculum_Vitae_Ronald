@@ -58,3 +58,50 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-primary);
 }
+
+/* ── Logo Marquee ─────────────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track {
+  animation: marquee-left 25s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-reverse {
+  animation: marquee-right 25s linear infinite;
+  will-change: transform;
+}
+
+/* Pausa en hover del contenedor padre */
+.marquee-paused .marquee-track,
+.marquee-paused .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* Normalizar SVGs inyectados via dangerouslySetInnerHTML en el marquee */
+.marquee-track [role="img"] svg {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  display: block;
+}
+
+/* ── Testimonials Infinite Slider ────────────────────── */
+.testimonials-track {
+  animation: marquee-left 30s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-paused .testimonials-track {
+  animation-play-state: paused;
+}
+
+

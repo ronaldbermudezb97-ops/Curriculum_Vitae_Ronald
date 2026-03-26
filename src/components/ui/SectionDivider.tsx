@@ -8,7 +8,7 @@ interface SectionDividerProps {
   baseVelocity?: number
 }
 
-export function SectionDivider({ labelKey, direction = 'left', baseVelocity = 3 }: SectionDividerProps) {
+export function SectionDivider({ labelKey, direction = 'left', baseVelocity = 1 }: SectionDividerProps) {
   const { t } = useTranslation()
   const baseX = useMotionValue(0)
   const { scrollY } = useScroll()
