@@ -1,0 +1,41 @@
+{
+  "intro": {
+    "welcome": "Bienvenido a mi perfil"
+  },
+  "hero": {
+    "role": "Ingeniero en Software",
+    "bio": "Ingeniero de Software con experiencia sólida participando en la migración y desarrollo de soluciones tecnológicas. Cuento con dominio de herramientas tanto en Frontend como en Backend y gestión de bases de datos. Profesional orientado al trabajo en equipo y a la mejora continua, que busca integrarse en proyectos desafiantes con retos técnicos que impulsen mi crecimiento profesional y aporten valor estratégico a la organización.",
+    "cta": "Contáctame"
+  },
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "contact": "Contacto"
+  },
+  "section": {
+    "about": "Acerca de Mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "gallery": "Galería",
+    "companies": "Empresas",
+    "references": "Referencias"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "submit": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado correctamente!",
+    "error": "Error al enviar. Intenta de nuevo."
+  },
+  "footer": {
+    "rights": "© 2025 Ronald Preciado. Todos los derechos reservados."
+  }
+}

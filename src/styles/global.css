@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  /* Modo Claro */
+  --color-bg:           #F1F5F9;
+  --color-card:         #FFFFFF;
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #64748B;
+
+  /* Estados semánticos */
+  --color-success:  #10B981;
+  --color-error:    #EF4444;
+  --color-warning:  #F59E0B;
+}
+
+.dark {
+  /* Modo Oscuro */
+  --color-bg:           #0F172A;
+  --color-card:         #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-primary);
+}

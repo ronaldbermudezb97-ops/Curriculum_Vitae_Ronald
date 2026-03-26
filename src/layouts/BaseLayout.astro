@@ -1,0 +1,54 @@
+---
+import '@/styles/global.css'
+import { I18nProvider } from '@/components/ui/I18nProvider'
+
+export interface Props {
+  title?: string
+  description?: string
+  image?: string
+}
+
+const { title = "Ronald Preciado — Ingeniero en Software", description, image } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description || "Portfolio de Ronald Isaias Preciado Bermúdez, Ingeniero en Software especializado en desarrollo web y soluciones tecnológicas."} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description || "Portfolio profesional de Ronald Preciado, Ingeniero en Software."} />
+    <meta property="og:image" content={image || "/images/profile.jpg"} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description || "Portfolio profesional de Ronald Preciado, Ingeniero en Software."} />
+    <meta property="twitter:image" content={image || "/images/profile.jpg"} />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-bg px-4 py-2 rounded-md z-50">
+      Saltar al contenido principal
+    </a>
+
+    <!-- I18n Provider for client-side initialization -->
+    <I18nProvider client:load />
+
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
+</html>
