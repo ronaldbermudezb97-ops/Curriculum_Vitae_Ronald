@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useAppStore } from '@/store/useAppStore'
 import { useScrollSpy } from '@/hooks/useScrollSpy'
 import { Button } from '@/components/ui/Button'
-import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { LocaleToggle } from '@/components/ui/LocaleToggle'
 import { gsap, ScrollToPlugin } from '@/utils/gsapConfig'
+import { useMounted } from '@/hooks/useMounted'
+import { SkeletonText } from '@/components/ui/Skeleton'
 
 // ScrollToPlugin ya registrado en gsapConfig — referencia para evitar tree-shaking
 void ScrollToPlugin
@@ -15,11 +16,13 @@ const navItems = [
   { href: '#proyectos',   label: 'Proyectos' },
   { href: '#habilidades', label: 'Habilidades' },
   { href: '#experiencia', label: 'Experiencia' },
+  { href: '#referencias', label: 'Referencias' },
   { href: '#contacto',    label: 'Contacto' },
 ]
 
 export function Navbar() {
   const { isMenuOpen, toggleMenu, activeSection } = useAppStore()
+  const mounted = useMounted()
 
   useScrollSpy()
 
@@ -35,7 +38,12 @@ export function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-border">
+    <motion.nav 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 2.0, ease: 'easeOut' }}
+      className="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-border"
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -47,24 +55,33 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
+          {!mounted ? (
+            <div className="hidden md:flex items-center gap-8">
+              <SkeletonText width="w-16" height="h-4" />
+              <SkeletonText width="w-16" height="h-4" />
+              <SkeletonText width="w-16" height="h-4" />
+              <SkeletonText width="w-16" height="h-4" />
+              <SkeletonText width="w-16" height="h-4" />
+            </div>
+          ) : (
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  activeSection === item.href ? 'text-primary' : 'text-secondary'
+                  activeSection === item.href ? 'text-white font-semibold' : 'text-secondary'
                 }`}
               >
                 {item.label}
               </button>
             ))}
           </div>
+          )}
 
           {/* Actions */}
           <div className="flex items-center gap-2">
             <LocaleToggle />
-            <ThemeToggle />
 
             {/* Mobile menu button */}
             <Button
@@ -100,7 +117,7 @@ export function Navbar() {
                     key={item.href}
                     onClick={() => handleNavClick(item.href)}
                     className={`block w-full text-left px-4 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-card ${
-                      activeSection === item.href ? 'bg-card text-primary' : 'text-secondary'
+                      activeSection === item.href ? 'bg-card text-white font-semibold' : 'text-secondary'
                     }`}
                   >
                     {item.label}
@@ -111,6 +128,6 @@ export function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </nav>
+    </motion.nav>
   )
 }

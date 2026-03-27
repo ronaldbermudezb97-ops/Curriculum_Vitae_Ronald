@@ -3,6 +3,7 @@
     "welcome": "Bienvenido a mi perfil"
   },
   "hero": {
+    "name": "Ronald Isaias Preciado Bermúdez",
     "role": "Ingeniero en Software",
     "bio": "Ingeniero de Software con experiencia sólida participando en la migración y desarrollo de soluciones tecnológicas. Cuento con dominio de herramientas tanto en Frontend como en Backend y gestión de bases de datos. Profesional orientado al trabajo en equipo y a la mejora continua, que busca integrarse en proyectos desafiantes con retos técnicos que impulsen mi crecimiento profesional y aporten valor estratégico a la organización.",
     "cta": "Contáctame"
@@ -16,13 +17,75 @@
   },
   "section": {
     "about": "No es suficiente que el código funcione",
-    "experience": "Experiencia",
-    "skills": "Habilidades",
-    "projects": "Proyectos",
-    "contact": "Contacto",
+    "experience": "Experiencia Profesional",
+    "skills": "Habilidades Técnicas",
+    "projects": "Proyectos Destacados",
+    "contact": "Contáctame",
     "gallery": "Galería",
     "companies": "Empresas",
     "references": "Referencias"
+  },
+  "projects": {
+    "1": {
+      "title": "Proyecto 1",
+      "desc": "Descripción del primer proyecto. Tecnologías utilizadas y funcionalidades principales."
+    },
+    "2": {
+      "title": "Proyecto 2",
+      "desc": "Descripción del segundo proyecto. Tecnologías utilizadas y funcionalidades principales."
+    },
+    "3": {
+      "title": "Proyecto 3",
+      "desc": "Descripción del tercer proyecto. Tecnologías utilizadas y funcionalidades principales."
+    },
+    "4": {
+      "title": "Proyecto 4",
+      "desc": "Descripción del cuarto proyecto. Tecnologías utilizadas y funcionalidades principales."
+    },
+    "status": {
+      "online": "En línea",
+      "pending": "Desarrollo",
+      "down": "No disponible"
+    },
+    "demo": "Demo",
+    "repo": "Código"
+  },
+  "experience": {
+    "1": {
+      "role": "Senior Software Engineer",
+      "company": "TechCorp Solutions",
+      "location": "Madrid, España",
+      "year": "Ago 2025 – Presente",
+      "desc": "Lidero el desarrollo de microservicios escalables utilizando .NET Core y React. Implementación de arquitecturas limpias y patrones de diseño. Mentoría de equipos junior y definición de estándares de código."
+    },
+    "2": {
+      "role": "Full Stack Developer",
+      "company": "InnovateTech",
+      "location": "Barcelona, España",
+      "year": "Dic 2024 – Jun 2025",
+      "desc": "Desarrollé aplicaciones web empresariales robustas. Migré sistemas legacy a tecnologías modernas. Optimicé la performance, reduciendo los tiempos de carga en un 40%."
+    },
+    "3": {
+      "role": "Backend Developer",
+      "company": "DataFlow Systems",
+      "location": "Valencia, España",
+      "year": "Jun 2024 – Dic 2024",
+      "desc": "Diseñé e implementé APIs RESTful de alto rendimiento. Integración con sistemas de terceros y optimización de consultas de base de datos. Implementé estrategias de caching que redujeron la carga en un 50%."
+    },
+    "4": {
+      "role": "Frontend Developer",
+      "company": "WebSolutions Inc",
+      "location": "Sevilla, España",
+      "year": "Mar 2024 – Jun 2024",
+      "desc": "Desarrollé interfaces de usuario modernas y responsivas. Implementé animaciones complejas y optimicé UX de la plataforma colaborando estrechamente con diseñadores."
+    },
+    "5": {
+      "role": "Junior Software Developer",
+      "company": "StartUpTech",
+      "location": "Málaga, España",
+      "year": "Dic 2023 – Feb 2024",
+      "desc": "Desarrollé features completas en aplicaciones web siguiendo buenas prácticas. Participé activamente en code reviews e implementé tests unitarios logrando alta cobertura de testing."
+    }
   },
   "contact": {
     "title": "Contáctame",
@@ -36,6 +99,6 @@
     "error": "Error al enviar. Intenta de nuevo."
   },
   "footer": {
-    "rights": "© 2025 Ronald Preciado. Todos los derechos reservados."
+    "rights": "© 2024 Ronald Preciado. Todos los derechos reservados."
   }
 }

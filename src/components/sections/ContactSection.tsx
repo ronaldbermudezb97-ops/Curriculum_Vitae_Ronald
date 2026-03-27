@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/Button'
 import { Card } from '@/components/ui/Card'
 import { sendContactEmail } from '@/services/emailService'
 import type { ContactFormData } from '@/types'
+import { useMounted } from '@/hooks/useMounted'
+import { SkeletonText } from '@/components/ui/Skeleton'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
@@ -23,6 +25,7 @@ export function ContactSection() {
   const { t } = useTranslation()
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+  const mounted = useMounted()
 
   const {
     register,
@@ -59,6 +62,35 @@ export function ContactSection() {
         </motion.h2>
 
         <div className="max-w-2xl mx-auto">
+          {!mounted ? (
+            <Card className="p-8">
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <SkeletonText width="w-24" height="h-4" />
+                    <SkeletonText width="w-full" height="h-12" />
+                  </div>
+                  <div className="space-y-2">
+                    <SkeletonText width="w-32" height="h-4" />
+                    <SkeletonText width="w-full" height="h-12" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <SkeletonText width="w-20" height="h-4" />
+                  <SkeletonText width="w-full" height="h-12" />
+                </div>
+                <div className="space-y-2">
+                  <SkeletonText width="w-20" height="h-4" />
+                  <SkeletonText width="w-full" height="h-32" />
+                </div>
+                <div className="flex gap-3">
+                  <SkeletonText width="w-4" height="h-4" />
+                  <SkeletonText width="w-64" height="h-4" />
+                </div>
+                <SkeletonText width="w-full" height="h-12" className="rounded-lg" />
+              </div>
+            </Card>
+          ) : (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -172,6 +204,7 @@ export function ContactSection() {
               </form>
             </Card>
           </motion.div>
+          )}
         </div>
       </div>
     </section>

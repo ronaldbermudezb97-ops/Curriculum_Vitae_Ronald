@@ -2,15 +2,39 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { heroData } from '@/data/hero'
 import { Button } from '@/components/ui/Button'
+import { useMounted } from '@/hooks/useMounted'
+import { SkeletonText, SkeletonCircle } from '@/components/ui/Skeleton'
 
 export function HeroSection() {
   const { t } = useTranslation()
+  const mounted = useMounted()
 
   return (
-    <section id="inicio" className="min-h-screen flex items-center py-20">
+    <section id="sobre-mi" className="min-h-screen flex items-center py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Columna de texto */}
+          {!mounted ? (
+            <>
+              <div className="space-y-6">
+                <SkeletonText className="w-3/4 h-12 md:h-16" />
+                <SkeletonText className="w-1/2 h-8 md:h-10" />
+                <SkeletonText className="w-full h-24" />
+                <div className="flex gap-4">
+                  <SkeletonText className="w-32 h-12 rounded-lg" />
+                  <div className="flex gap-4">
+                    <SkeletonCircle size="w-12 h-12" />
+                    <SkeletonCircle size="w-12 h-12" />
+                    <SkeletonCircle size="w-12 h-12" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center lg:justify-end">
+                <SkeletonCircle size="w-80 h-80 md:w-96 md:h-96" />
+              </div>
+            </>
+          ) : (
+          <>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -77,6 +101,8 @@ export function HeroSection() {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary rounded-full opacity-30" />
             </div>
           </motion.div>
+          </>
+          )}
         </div>
       </div>
     </section>

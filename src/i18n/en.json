@@ -1,10 +1,11 @@
 {
   "intro": {
-    "welcome": "Welcome to my profile"
+    "welcome": "Welcome to my portfolio"
   },
   "hero": {
+    "name": "Ronald Isaias Preciado Bermúdez",
     "role": "Software Engineer",
-    "bio": "Software Engineer with solid experience participating in the migration and development of technological solutions. I have mastery of tools in both Frontend and Backend as well as database management. A professional oriented towards teamwork and continuous improvement, who seeks to integrate into challenging projects with technical challenges that drive my professional growth and add strategic value to the organization.",
+    "bio": "Software Engineer with solid experience in migrating and developing technological solutions. Proficient in both Frontend and Backend tools as well as database management. Professional oriented to teamwork and continuous improvement, seeking to integrate into challenging technical projects that drive my professional growth and provide strategic value to the organization.",
     "cta": "Contact Me"
   },
   "nav": {
@@ -15,14 +16,76 @@
     "contact": "Contact"
   },
   "section": {
-    "about": "It is not enough for code to work.",
-    "experience": "Experience",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact",
+    "about": "It's not enough for code to work",
+    "experience": "Professional Experience",
+    "skills": "Technical Skills",
+    "projects": "Featured Projects",
+    "contact": "Contact Me",
     "gallery": "Gallery",
     "companies": "Companies",
     "references": "References"
+  },
+  "projects": {
+    "1": {
+      "title": "Project 1",
+      "desc": "Developed the core architecture of the first project. Implemented modern web technologies and primary functionalities."
+    },
+    "2": {
+      "title": "Project 2",
+      "desc": "Built a robust second project. Integrated various APIs and managed complex database relations."
+    },
+    "3": {
+      "title": "Project 3",
+      "desc": "Created the third project with scalable microservices. Optimized query times and data processing."
+    },
+    "4": {
+      "title": "Project 4",
+      "desc": "Designed the fourth project interface and infrastructure. Deployed on cloud providers ensuring high availability."
+    },
+    "status": {
+      "online": "Online",
+      "pending": "Development",
+      "down": "Down"
+    },
+    "demo": "Demo",
+    "repo": "Code"
+  },
+  "experience": {
+    "1": {
+      "role": "Senior Software Engineer",
+      "company": "TechCorp Solutions",
+      "location": "Madrid, Spain",
+      "year": "Aug 2025 – Present",
+      "desc": "Leading the development of scalable microservices using .NET Core and React. Implementing clean architectures and design patterns. Mentoring junior teams and defining coding standards."
+    },
+    "2": {
+      "role": "Full Stack Developer",
+      "company": "InnovateTech",
+      "location": "Barcelona, Spain",
+      "year": "Dec 2024 – Jun 2025",
+      "desc": "Developed robust enterprise web applications. Migrated legacy systems to modern technologies. Optimized performance, reducing load times by 40%."
+    },
+    "3": {
+      "role": "Backend Developer",
+      "company": "DataFlow Systems",
+      "location": "Valencia, Spain",
+      "year": "Jun 2024 – Dec 2024",
+      "desc": "Designed and implemented high-performance RESTful APIs. Integrated third-party systems and optimized database queries. Implemented caching strategies that reduced load by 50%."
+    },
+    "4": {
+      "role": "Frontend Developer",
+      "company": "WebSolutions Inc",
+      "location": "Seville, Spain",
+      "year": "Mar 2024 – Jun 2024",
+      "desc": "Built modern and responsive user interfaces. Implemented complex animations and optimized the platform's UX while collaborating closely with designers."
+    },
+    "5": {
+      "role": "Junior Software Developer",
+      "company": "StartUpTech",
+      "location": "Malaga, Spain",
+      "year": "Dec 2023 – Feb 2024",
+      "desc": "Developed full features in web applications following best practices. Participated actively in code reviews and wrote unit tests achieving high test coverage."
+    }
   },
   "contact": {
     "title": "Contact Me",
@@ -33,9 +96,9 @@
     "submit": "Send Message",
     "sending": "Sending...",
     "success": "Message sent successfully!",
-    "error": "Error sending. Please try again."
+    "error": "Failed to send. Please try again."
   },
   "footer": {
-    "rights": "© 2025 Ronald Preciado. All rights reserved."
+    "rights": "© 2024 Ronald Preciado. All rights reserved."
   }
 }

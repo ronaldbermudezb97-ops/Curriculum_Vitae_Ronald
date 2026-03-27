@@ -13,7 +13,7 @@ export const skillCards: SkillCard[] = [
   },
   {
     id: 2,
-    title: "Frameworks & Librerías (Backend)",
+    title: "Frameworks & Backend",
     accentColor: "#F97316",
     icon: "⚙️",
     items: [
@@ -24,7 +24,7 @@ export const skillCards: SkillCard[] = [
   },
   {
     id: 3,
-    title: "Frameworks & Librerías (Frontend)",
+    title: "Frameworks & Frontend",
     accentColor: "#10B981",
     icon: "🎨",
     items: [
@@ -57,13 +57,24 @@ export const skillCards: SkillCard[] = [
   },
   {
     id: 6,
-    title: "Herramientas & Metodologías",
+    title: "Herramientas & Herramientas",
     accentColor: "#F59E0B",
     icon: "🛠️",
     items: [
       { category: "Control de Versiones", skills: ["Git", "GitHub", "GitLab"] },
       { category: "Metodologías", skills: ["Agile", "Scrum", "Kanban"] },
       { category: "Testing", skills: ["Unit Testing", "Integration Testing", "Jest", "xUnit"] }
+    ]
+  },
+  {
+    id: 7,
+    title: "Arquitectura & Patrones",
+    accentColor: "#6366F1",
+    icon: "🏗️",
+    items: [
+      { category: "Arquitecturas", skills: ["Domain-Driven Design (DDD)", "Clean Architecture", "Hexagonal Architecture", "Microservicios"] },
+      { category: "Patrones de Diseño", skills: ["Singleton", "Dependency Injection", "Builder", "Proxy", "Factory", "Observer", "Strategy"] },
+      { category: "Principios & Metodologías", skills: ["SOLID", "TDD", "CI/CD", "Clean Code"] }
     ]
   }
 ]

@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { useAppStore } from '@/store/useAppStore'
 
+const NAV_IDS = ['#inicio', '#proyectos', '#habilidades', '#experiencia', '#referencias', '#contacto']
+
 export function useScrollSpy() {
   const { setActiveSection } = useAppStore()
 
@@ -10,13 +12,14 @@ export function useScrollSpy() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`)
+          const id = `#${entry.target.id}`
+          if (entry.isIntersecting && NAV_IDS.includes(id)) {
+            setActiveSection(id)
           }
         })
       },
       {
-        rootMargin: '-50% 0px -50% 0px',
+        rootMargin: '-30% 0px -30% 0px',
         threshold: 0,
       }
     )

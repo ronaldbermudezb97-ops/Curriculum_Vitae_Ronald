@@ -5,10 +5,10 @@ export function IntroSection() {
   const { t } = useTranslation()
 
   const container = {
-    hidden: { opacity: 0 },
+    hidden: {},
     show: {
-      opacity: 1,
       transition: {
+        delayChildren: 2.0, // Retraso de medio segundo para esperar la carga del fondo
         staggerChildren: 0.1,
       },
     },
@@ -16,13 +16,16 @@ export function IntroSection() {
 
   const item = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+    },
   }
 
   const text = t('intro.welcome', { defaultValue: 'Bienvenido a mi perfil' })
 
   return (
-    <section id="intro" className="min-h-screen flex items-center justify-center bg-bg">
+    <section id="inicio" className="min-h-screen flex items-center justify-center bg-bg">
       <motion.div
         className="relative z-10 text-center"
         variants={container}

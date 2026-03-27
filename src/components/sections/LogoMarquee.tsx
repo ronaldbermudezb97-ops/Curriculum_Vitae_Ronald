@@ -1,5 +1,7 @@
 import type { LogoItem } from '@/types'
 import { logoItems } from '@/data/logos'
+import { useMounted } from '@/hooks/useMounted'
+import { SkeletonText } from '@/components/ui/Skeleton'
 
 // SVGs importados como raw string (fill="currentColor" en todos)
 import bancoBolSVG from '@/svg/BancoBolivariano.svg?raw'
@@ -44,6 +46,7 @@ function LogoCard({ logo }: LogoCardProps) {
 }
 
 export function LogoMarquee() {
+  const mounted = useMounted()
   /*
    * Array duplicado [A B C D A B C D].
    * La animación va de translateX(0) → translateX(-50%).
@@ -61,9 +64,16 @@ export function LogoMarquee() {
       {/* overflow-hidden: logos salen/entran como el sol en el horizonte */}
       <div className="overflow-hidden w-full">
         <div className="marquee-track flex items-center w-max">
-          {doubled.map((logo, index) => (
+          {!mounted ? (
+            Array.from({ length: 8 }).map((_, index) => (
+              <div key={`logo-skel-${index}`} className="flex-shrink-0 h-[62px] px-8 flex items-center">
+                <SkeletonText width="w-24" height="h-10" />
+              </div>
+            ))
+          ) : (
+          doubled.map((logo, index) => (
             <LogoCard key={`${logo.id}-${index}`} logo={logo} />
-          ))}
+          )))}
         </div>
       </div>
     </section>

@@ -2,10 +2,6 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 interface AppState {
-  // Tema
-  isDark: boolean
-  toggleTheme: () => void
-
   // Navegación
   activeSection: string
   setActiveSection: (section: string) => void
@@ -22,8 +18,6 @@ interface AppState {
 export const useAppStore = create<AppState>()(
   persist(
     (set) => ({
-      isDark: false,
-      toggleTheme: () => set((s) => ({ isDark: !s.isDark })),
       activeSection: '#inicio',
       setActiveSection: (activeSection) => set({ activeSection }),
       locale: 'es',
@@ -33,7 +27,7 @@ export const useAppStore = create<AppState>()(
     }),
     {
       name: 'portfolio-store',
-      partialize: (s) => ({ isDark: s.isDark, locale: s.locale })
+      partialize: (s) => ({ locale: s.locale })
     }
   )
 )
