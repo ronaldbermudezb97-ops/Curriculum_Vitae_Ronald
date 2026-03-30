@@ -15,12 +15,14 @@ export function ExperienceSection() {
   const mounted = useMounted()
 
   useGSAP(() => {
+    if (!mounted) return
+
     const section = sectionRef.current
     const path = pathRef.current
     if (!section || !path) return
 
-    // Animar la línea vertical
-    // Al usar pathLength="100" en el SVG, el stroke dashoffset va de 100 a 0.
+    // 1. Animar la línea vertical principal (Efecto dibujo)
+    // Usamos pathLength="100" para que el offset vaya de 100 a 0.
     gsap.set(path, { strokeDasharray: 100, strokeDashoffset: 100 })
 
     gsap.to(path, {
@@ -28,32 +30,60 @@ export function ExperienceSection() {
       ease: 'none',
       scrollTrigger: {
         trigger: section,
-        start: 'top center',
-        end: 'bottom center',
-        scrub: true,
+        start: 'top 20%', // Inicia un poco después de entrar al viewport
+        end: 'bottom 80%', // Termina antes del final
+        scrub: 1, // Suaviza la animación siguiendo el scroll
       },
     })
 
-    // Animar las tarjetas (nodos) de experiencia 
-    const nodes = gsap.utils.toArray<HTMLElement>('.experience-node')
-    nodes.forEach((nodeElement) => {
+    // 2. Animar los puntos (Dots)
+    const dots = gsap.utils.toArray<HTMLElement>('.experience-dot')
+    dots.forEach((dot) => {
+      gsap.fromTo(dot, 
+        { scale: 0, opacity: 0, filter: 'blur(10px)' },
+        { 
+          scale: 1, 
+          opacity: 1,
+          filter: 'blur(0px)',
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: dot,
+            start: 'top 85%', // Aparece un poco antes de llegar al centro
+            toggleActions: 'play none none reverse',
+          }
+        }
+      )
+    })
+
+    // 3. Animar las tarjetas (nodos)
+    const nodes = gsap.utils.toArray<HTMLElement>('.experience-node-content')
+    nodes.forEach((node, i) => {
+      const isLeft = node.closest('.experience-node')?.classList.contains('flex-row-reverse')
+      
       gsap.fromTo(
-        nodeElement,
-        { opacity: 0, y: 50 },
+        node,
+        { 
+          opacity: 0, 
+          x: isLeft ? 100 : -100, // Desliza desde fuera hacia adentro
+          rotateY: isLeft ? -15 : 15,
+          scale: 0.9,
+        },
         {
           opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
+          x: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power4.out',
           scrollTrigger: {
-            trigger: nodeElement,
-            start: 'top 85%',
+            trigger: node,
+            start: 'top 90%',
             toggleActions: 'play none none reverse',
           },
         }
       )
     })
-  }, { scope: sectionRef })
+  }, { scope: sectionRef, dependencies: [mounted] })
 
   return (
     <section ref={sectionRef} id="experiencia" className="py-24 bg-card relative">
@@ -69,14 +99,25 @@ export function ExperienceSection() {
             className="absolute left-1/2 transform -translate-x-1/2 w-[8px] h-full top-0 bottom-0 pointer-events-none z-0"
             preserveAspectRatio="none"
           >
+            {/* Línea de fondo (guía) */}
+            <line
+              x1="50%"
+              y1="0"
+              x2="50%"
+              y2="100%"
+              className="stroke-border/10"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+            {/* Línea animada de primer plano */}
             <line
               ref={pathRef as any}
               x1="50%"
               y1="0"
               x2="50%"
               y2="100%"
-              className="stroke-primary/50" // Color semitransparente que hereda variable CSS
-              strokeWidth="3"
+              className="stroke-primary shadow-[0_0_15px_rgba(59,130,246,0.3)]" 
+              strokeWidth="4"
               strokeLinecap="round"
               pathLength="100"
             />
@@ -113,7 +154,9 @@ export function ExperienceSection() {
                 )}
               >
                 <div className={cn('w-1/2', node.side === 'left' ? 'pl-8' : 'pr-8 text-right')}>
-                  <div className="bg-bg p-8 rounded-2xl shadow-lg border border-border/40 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                  <div className="experience-node-content bg-bg p-8 rounded-2xl shadow-lg border border-border/40 transition-all duration-500 hover:border-primary/40 group overflow-hidden relative">
+                    {/* Sutil brillo al fondo */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.02] transition-colors duration-500" />
                     
                     <div className="text-sm font-semibold text-primary mb-2 py-1 px-3 bg-primary/10 rounded-full inline-block">
                       {t(`${i18nKey}.year`)}
@@ -142,7 +185,7 @@ export function ExperienceSection() {
               </div>
 
               {/* Timeline Dot Central */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-[5px] border-card shadow-md z-20" />
+              <div className="experience-dot absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-card rounded-full border-[5px] border-primary shadow-[0_0_15px_rgba(59,130,246,0.5)] z-20" />
             </div>
           )}))}
         </div>

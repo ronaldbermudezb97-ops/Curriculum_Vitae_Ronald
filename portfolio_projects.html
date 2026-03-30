@@ -1,0 +1,229 @@
+
+<style>
+  :root { --gap: 14px; }
+  body { margin: 0; padding: 0; }
+  .wrap { padding: 16px 0; }
+  .section { margin-bottom: 28px; }
+  .section-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .03em;
+  }
+  .badge-fe  { background: #EEEDFE; color: #3C3489; }
+  .badge-be  { background: #E1F5EE; color: #085041; }
+  .badge-web { background: #FAEEDA; color: #633806; }
+  .divider { flex: 1; height: 1px; background: var(--color-border-tertiary); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--gap); }
+  .card {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 16px;
+    transition: border-color .15s;
+    cursor: pointer;
+  }
+  .card:hover { border-color: var(--color-border-primary); }
+  .card-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 6px 0;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-tertiary);
+    color: var(--color-text-secondary);
+  }
+  .tag-fe  { border-color: #AFA9EC; color: #3C3489; background: #EEEDFE; }
+  .tag-be  { border-color: #5DCAA5; color: #085041; background: #E1F5EE; }
+  .tag-web { border-color: #FAC775; color: #633806; background: #FAEEDA; }
+
+  .tip {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-border-tertiary);
+    line-height: 1.5;
+  }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+  .dot-fe  { background: #7F77DD; }
+  .dot-be  { background: #1D9E75; }
+  .dot-web { background: #EF9F27; }
+</style>
+
+<div class="wrap">
+
+  <!-- FRONTEND -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-fe"></span>
+      <span class="badge badge-fe">Frontend</span>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto Dashboard de Analítica para frontend semi-senior: estructura, componentes clave y cómo hacerlo destacar en el portafolio')">
+        <div class="card-title">Dashboard de analítica</div>
+        <div class="card-desc">Panel interactivo con gráficas en tiempo real, filtros avanzados y exportación de datos. Muestra dominio de estado complejo y UX.</div>
+        <div class="tags">
+          <span class="tag tag-fe">React</span>
+          <span class="tag tag-fe">TypeScript</span>
+          <span class="tag tag-fe">Recharts / D3</span>
+          <span class="tag tag-fe">Zustand</span>
+          <span class="tag tag-fe">React Query</span>
+        </div>
+        <div class="tip">💡 Agrega modo oscuro y responsive — puntos extra de impresión.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto E-commerce con carrito y pagos para frontend semi-senior')">
+        <div class="card-title">E-commerce con carrito y pagos</div>
+        <div class="card-desc">Tienda completa: catálogo, carrito persistente, checkout y pasarela de pago. Demuestra flujos de usuario completos.</div>
+        <div class="tags">
+          <span class="tag tag-fe">Next.js</span>
+          <span class="tag tag-fe">TypeScript</span>
+          <span class="tag tag-fe">Tailwind CSS</span>
+          <span class="tag tag-fe">Stripe</span>
+          <span class="tag tag-fe">Context API</span>
+        </div>
+        <div class="tip">💡 Incluye SSR para SEO y lazy loading de imágenes.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto Design System / UI Library para portafolio frontend semi-senior')">
+        <div class="card-title">Design System / UI Library</div>
+        <div class="card-desc">Librería de componentes reutilizables documentada con Storybook. Muy valorado por equipos de producto.</div>
+        <div class="tags">
+          <span class="tag tag-fe">React</span>
+          <span class="tag tag-fe">Storybook</span>
+          <span class="tag tag-fe">CSS Modules</span>
+          <span class="tag tag-fe">Jest</span>
+          <span class="tag tag-fe">Chromatic</span>
+        </div>
+        <div class="tip">💡 Publica en npm y agrega cobertura de tests visual.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BACKEND -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-be"></span>
+      <span class="badge badge-be">Backend</span>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto API REST de gestión de usuarios con autenticación para backend semi-senior')">
+        <div class="card-title">API REST con auth completa</div>
+        <div class="card-desc">CRUD de usuarios, autenticación JWT + refresh tokens, roles/permisos, rate limiting y documentación con Swagger.</div>
+        <div class="tags">
+          <span class="tag tag-be">Node.js</span>
+          <span class="tag tag-be">Express / Fastify</span>
+          <span class="tag tag-be">PostgreSQL</span>
+          <span class="tag tag-be">JWT</span>
+          <span class="tag tag-be">Prisma</span>
+        </div>
+        <div class="tip">💡 Agrega tests de integración con Supertest + CI/CD en GitHub Actions.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto de Microservicios con mensajería para portafolio backend semi-senior')">
+        <div class="card-title">Microservicio con mensajería</div>
+        <div class="card-desc">Sistema de órdenes o notificaciones con cola de mensajes. Muestra conocimiento de arquitecturas distribuidas.</div>
+        <div class="tags">
+          <span class="tag tag-be">Python / Node.js</span>
+          <span class="tag tag-be">RabbitMQ / Kafka</span>
+          <span class="tag tag-be">Docker</span>
+          <span class="tag tag-be">Redis</span>
+          <span class="tag tag-be">PostgreSQL</span>
+        </div>
+        <div class="tip">💡 Documenta con diagrama de arquitectura en el README.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto GraphQL API con suscripciones para portafolio backend semi-senior')">
+        <div class="card-title">GraphQL API con suscripciones</div>
+        <div class="card-desc">API GraphQL con queries, mutations y suscripciones en tiempo real. Ideal para diferenciarse de APIs REST clásicas.</div>
+        <div class="tags">
+          <span class="tag tag-be">Apollo Server</span>
+          <span class="tag tag-be">Node.js</span>
+          <span class="tag tag-be">WebSockets</span>
+          <span class="tag tag-be">MongoDB</span>
+          <span class="tag tag-be">DataLoader</span>
+        </div>
+        <div class="tip">💡 Resuelve el problema N+1 con DataLoader — demuestra madurez técnica.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULL STACK / WEB APP -->
+  <div class="section">
+    <div class="section-header">
+      <span class="dot dot-web"></span>
+      <span class="badge badge-web">Aplicaciones web completas</span>
+      <div class="divider"></div>
+    </div>
+    <div class="cards">
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto SaaS de gestión de proyectos tipo Trello para portafolio semi-senior fullstack')">
+        <div class="card-title">SaaS de gestión de proyectos</div>
+        <div class="card-desc">App tipo Trello/Notion con tableros, drag & drop, colaboración en tiempo real y multi-tenancy. El proyecto más completo.</div>
+        <div class="tags">
+          <span class="tag tag-web">Next.js</span>
+          <span class="tag tag-web">tRPC / GraphQL</span>
+          <span class="tag tag-web">Prisma</span>
+          <span class="tag tag-web">Socket.io</span>
+          <span class="tag tag-web">PostgreSQL</span>
+        </div>
+        <div class="tip">💡 El que más impresiona a reclutadores — demuestra visión de producto.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto Chat en tiempo real con canales para portafolio semi-senior fullstack')">
+        <div class="card-title">Chat en tiempo real con canales</div>
+        <div class="card-desc">Mensajería tipo Slack: canales, DMs, notificaciones push y historial paginado. Demuestra dominio de WebSockets.</div>
+        <div class="tags">
+          <span class="tag tag-web">React</span>
+          <span class="tag tag-web">Node.js</span>
+          <span class="tag tag-web">Socket.io</span>
+          <span class="tag tag-web">Redis Pub/Sub</span>
+          <span class="tag tag-web">PostgreSQL</span>
+        </div>
+        <div class="tip">💡 Añade autenticación OAuth (Google/GitHub) para realismo.</div>
+      </div>
+
+      <div class="card" onclick="sendPrompt('Dame más detalles del proyecto plataforma de blog con CMS headless para portafolio semi-senior fullstack')">
+        <div class="card-title">Blog / CMS con editor rico</div>
+        <div class="card-desc">Plataforma de contenidos con editor tipo Notion, SEO optimizado, comentarios y sistema de búsqueda full-text.</div>
+        <div class="tags">
+          <span class="tag tag-web">Next.js</span>
+          <span class="tag tag-web">TipTap</span>
+          <span class="tag tag-web">Algolia</span>
+          <span class="tag tag-web">Supabase</span>
+          <span class="tag tag-web">Vercel</span>
+        </div>
+        <div class="tip">💡 Agrega un blog personal real — el proyecto y el portafolio se fusionan.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

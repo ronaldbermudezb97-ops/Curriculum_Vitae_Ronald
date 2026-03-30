@@ -59,24 +59,7 @@ export function HeroSection() {
                 </Button>
               </a>
 
-              {/* Social links */}
-              <div className="flex gap-4">
-                {heroData.social.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-card hover:bg-accent transition-colors"
-                    aria-label={social.label}
-                  >
-                    {/* Simple icons - replace with actual icons later */}
-                    {social.icon === 'github' && '🐙'}
-                    {social.icon === 'linkedin' && '💼'}
-                    {social.icon === 'youtube' && '📺'}
-                  </a>
-                ))}
-              </div>
+             
             </div>
           </motion.div>
 

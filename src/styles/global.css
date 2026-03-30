@@ -104,4 +104,16 @@ body {
   animation-play-state: paused;
 }
 
+/* ── Skills Card Border Animation ───────────────────── */
+@keyframes border-glow {
+  0%   { border-color: rgba(255, 255, 255, 0.2); }
+  50%  { border-color: rgba(255, 255, 255, 0.8); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); }
+  100% { border-color: rgba(255, 255, 255, 0.2); }
+}
+
+.animate-border-glow {
+  animation: border-glow 4s infinite ease-in-out;
+}
+
+
 
