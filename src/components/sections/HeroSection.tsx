@@ -42,8 +42,9 @@ export function HeroSection() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-primary">
-              {heroData.name}
+            <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-primary flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span>{heroData.name}</span>
+            
             </h1>
             <h2 className="text-2xl md:text-3xl font-inter font-medium text-secondary">
               {t(heroData.role)}
@@ -73,15 +74,12 @@ export function HeroSection() {
           >
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20">
-                <img
-                  src={heroData.photo}
-                  alt={heroData.name}
-                  className="w-full h-full object-cover"
-                />
+                <img src="/rename.png" alt="icon" className="w-full h-full object-cover" />
+             
               </div>
               {/* Decorative elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-full opacity-20" />
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary rounded-full opacity-30" />
+
             </div>
           </motion.div>
           </>

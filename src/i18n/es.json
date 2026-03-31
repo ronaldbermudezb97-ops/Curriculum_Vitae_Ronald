@@ -27,20 +27,36 @@
   },
   "projects": {
     "1": {
-      "title": "Proyecto 1",
-      "desc": "Descripción del primer proyecto. Tecnologías utilizadas y funcionalidades principales."
+      "title": "Dashboard de Analítica",
+      "desc": "Panel interactivo con gráficas en tiempo real, filtros avanzados y exportación de Datos. Muestra dominio de estado complejo y UX."
     },
     "2": {
-      "title": "Proyecto 2",
-      "desc": "Descripción del segundo proyecto. Tecnologías utilizadas y funcionalidades principales."
+      "title": "E-commerce con Carrito y Pagos",
+      "desc": "Tienda completa: catálogo, carrito persistente, checkout y pasarela de pago Stripe. Demuestra flujos de usuario completos."
     },
     "3": {
-      "title": "Proyecto 3",
-      "desc": "Descripción del tercer proyecto. Tecnologías utilizadas y funcionalidades principales."
+      "title": "Design System / UI Library",
+      "desc": "Librería de componentes reutilizables documentada con Storybook. Muy valorado por equipos de producto."
     },
     "4": {
-      "title": "Proyecto 4",
-      "desc": "Descripción del cuarto proyecto. Tecnologías utilizadas y funcionalidades principales."
+      "title": "API REST con Auth Completa",
+      "desc": "CRUD de usuarios, autenticación JWT + refresh tokens, roles/permisos, rate limiting y documentación con Swagger."
+    },
+    "5": {
+      "title": "Microservicio con Mensajería",
+      "desc": "Sistema de órdenes o notificaciones con cola de mensajes RabbitMQ. Muestra conocimiento de arquitecturas distribuidas."
+    },
+    "6": {
+      "title": "GraphQL API con Suscripciones",
+      "desc": "API GraphQL con queries, mutations y suscripciones en tiempo real. Ideal para diferenciarse de APIs REST clásicas."
+    },
+    "7": {
+      "title": "SaaS de Gestión de Proyectos",
+      "desc": "App tipo Trello/Notion con tableros, drag & drop, colaboración en tiempo real y multi-tenancy."
+    },
+    "8": {
+      "title": "Chat en Tiempo Real",
+      "desc": "Mensajería tipo Slack: canales, DMs, notificaciones push y historial paginado. Demuestra dominio de WebSockets."
     },
     "status": {
       "online": "En línea",

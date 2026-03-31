@@ -27,20 +27,36 @@
   },
   "projects": {
     "1": {
-      "title": "Project 1",
-      "desc": "Developed the core architecture of the first project. Implemented modern web technologies and primary functionalities."
+      "title": "Analytics Dashboard",
+      "desc": "Interactive dashboard with real-time charts, advanced filters, and data export. Demonstrates complex state management and UX."
     },
     "2": {
-      "title": "Project 2",
-      "desc": "Built a robust second project. Integrated various APIs and managed complex database relations."
+      "title": "E-commerce with Cart & Payments",
+      "desc": "Full store experience: catalog, persistent cart, checkout, and Stripe payment gateway. Showcases complete user flows."
     },
     "3": {
-      "title": "Project 3",
-      "desc": "Created the third project with scalable microservices. Optimized query times and data processing."
+      "title": "Design System / UI Library",
+      "desc": "Reusable component library documented with Storybook. Highly valued by product teams for consistency."
     },
     "4": {
-      "title": "Project 4",
-      "desc": "Designed the fourth project interface and infrastructure. Deployed on cloud providers ensuring high availability."
+      "title": "REST API with Full Auth",
+      "desc": "Users CRUD, JWT authentication + refresh tokens, roles/permissions, rate limiting, and Swagger documentation."
+    },
+    "5": {
+      "title": "Microservice with Messaging",
+      "desc": "Orders or notifications system using RabbitMQ message queues. Demonstrates knowledge of distributed architectures."
+    },
+    "6": {
+      "title": "GraphQL API with Subscriptions",
+      "desc": "GraphQL API with queries, mutations, and real-time subscriptions. Differentiates from classic REST APIs."
+    },
+    "7": {
+      "title": "Project Management SaaS",
+      "desc": "Trello/Notion-style app with boards, drag & drop, real-time collaboration, and multi-tenancy."
+    },
+    "8": {
+      "title": "Real-time Chat App",
+      "desc": "Slack-like messaging: channels, DMs, push notifications, and paginated history. Demonstrates WebSocket proficiency."
     },
     "status": {
       "online": "Online",
