@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Navbar } from '@/components/layout/Navbar'
+import { IntroSection } from '@/components/sections/IntroSection'
+import { HeroSection } from '@/components/sections/HeroSection'
+import { ProjectsSection } from '@/components/sections/ProjectsSection'
+import { GallerySection } from '@/components/sections/GallerySection'
+import { ExperienceSection } from '@/components/sections/ExperienceSection'
+import { LogoMarquee } from '@/components/sections/LogoMarquee'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
+import { ContactSection } from '@/components/sections/ContactSection'
+import { SectionDivider } from '@/components/ui/SectionDivider'
+import { VantaBackground } from '@/components/ui/VantaBackground'
+import Footer from '@/components/layout/Footer.astro'
+---
+
+<BaseLayout title="Ronald Preciado — Portfolio">
+  <!-- Vanta Background -->
+  <VantaBackground client:load />
+
+  <!-- Navigation -->
+  <Navbar client:load />
+
+  <!-- Main Content -->
+  <main>
+    <!-- Intro Section -->
+    <IntroSection client:load />
+
+    <!-- Hero Section -->
+    <HeroSection client:load />
+
+    
+    <!-- Projects Section -->
+    <ProjectsSection client:visible />
+
+   
+    <!-- Skills Gallery -->
+    <GallerySection client:load />
+
+    
+    <!-- Experience Timeline -->
+    <ExperienceSection client:visible />
+
+    <!-- Logo Marquee -->
+    <LogoMarquee client:visible />
+
+  
+    <!-- Testimonials -->
+    <TestimonialsSection client:visible />
+
+  
+    <!-- Contact Form -->
+    <ContactSection client:visible />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap');
+
+:root {
+  /* Modo Claro */
+  --color-bg:           #F1F5F9;
+  --color-card:         #FFFFFF;
+  --color-text-primary: #1E293B;
+  --color-text-secondary: #64748B;
+
+  /* Estados semánticos */
+  --color-success:  #10B981;
+  --color-error:    #EF4444;
+  --color-warning:  #F59E0B;
+}
+
+.dark {
+  /* Modo Oscuro */
+  --color-bg:           #0F172A;
+  --color-card:         #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-primary);
+}
+
+/* ── Logo Marquee ─────────────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-track {
+  animation: marquee-left 25s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-reverse {
+  animation: marquee-right 25s linear infinite;
+  will-change: transform;
+}
+
+/* Pausa en hover del contenedor padre */
+.marquee-paused .marquee-track,
+.marquee-paused .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+/* Normalizar SVGs inyectados via dangerouslySetInnerHTML en el marquee */
+.marquee-track [role="img"] svg {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  display: block;
+}
+
+/* ── Testimonials Infinite Slider ────────────────────── */
+.testimonials-track {
+  animation: marquee-left 30s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-paused .testimonials-track {
+  animation-play-state: paused;
+}
+
+/* ── Skills Card Border Animation ───────────────────── */
+@keyframes border-glow {
+  0%   { border-color: rgba(255, 255, 255, 0.2); }
+  50%  { border-color: rgba(255, 255, 255, 0.8); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); }
+  100% { border-color: rgba(255, 255, 255, 0.2); }
+}
+
+.animate-border-glow {
+  animation: border-glow 4s infinite ease-in-out;
+}
+
+
+

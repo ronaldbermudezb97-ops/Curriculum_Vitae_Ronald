@@ -1,0 +1,131 @@
+{
+  "intro": {
+    "welcome": "Welcome to my portfolio"
+  },
+  "hero": {
+    "name": "Josué Steven Gallegos Silva",
+    "role": "FullStack Software Engineer",
+    "bio": "Software Engineer with a broad track record in modernizing enterprise systems. Specialized in Microservices and Microfrontends architectures using cutting-edge technologies like React.js, .NET 6, NestJS, and Spring Boot. Expert in database optimization and designing scalable solutions for the banking and commercial sectors.",
+    "cta": "Contact Me"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "references": "References",
+    "contact": "Contact"
+  },
+  "section": {
+    "about": "It's not enough for code to work",
+    "experience": "Professional Experience",
+    "skills": "Technical Skills",
+    "projects": "Deployed Projects",
+    "contact": "Contact Me",
+    "gallery": "Gallery",
+    "companies": "Companies",
+    "references": "References"
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "subtitle": "Drag to explore my technical capabilities",
+    "1": { "title": "Languages & Core", "cat1": "Languages", "cat2": "Runtime Environments" },
+    "2": { "title": "Frameworks & Backend", "cat1": ".NET", "cat2": "Java Core", "cat3": "Node.js Ecosystem" },
+    "3": { "title": "Frameworks & Frontend", "cat1": "React Modern", "cat2": "Vue.js", "cat3": "Angular" },
+    "4": { "title": "Databases", "cat1": "SQL Engines", "cat2": "NoSQL Systems", "cat3": "ORM Layer" },
+    "5": { "title": "DevOps & Cloud", "cat1": "Cloud Infrastructure", "cat2": "Containerization", "cat3": "CI/CD Pipelines" },
+    "6": { "title": "Tools & Methods", "cat1": "Version Control", "cat2": "Agile Methodologies", "cat3": "Comprehensive Testing" },
+    "7": { "title": "Architecture & Patterns", "cat1": "Main Architectures", "cat2": "Design Patterns", "cat3": "Best Practices & SOLID" }
+  },
+  "projects": {
+    "1": {
+      "title": "CrossFit Ragnarok",
+      "desc": "Application for CrossFit workout management and community. Interactive demo available."
+    },
+    "2": {
+      "title": "SG Col Pro - HVAC",
+      "desc": "Service platform for air conditioning cleaning and maintenance management."
+    },
+    "3": {
+      "title": "Auth Server Core",
+      "desc": "Functional authentication server with JWT for web application security."
+    },
+    "4": {
+      "title": "Security Microservice",
+      "desc": "Microservice specialized in authorization and security token management."
+    },
+    "status": {
+      "online": "Online",
+      "pending": "Development",
+      "down": "Down"
+    },
+    "demo": "Demo",
+    "repo": "Code"
+  },
+  "experience": {
+    "1": {
+      "role": "FullStack Developer",
+      "company": "Sudamericana de software Guayas (DIFARE)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Aug 2025 – Present",
+      "desc": "Migrating .NET MVC portals to a modern Microfrontends (React.js) and Microservices (.NET 6) architecture. Managing SQL Server and creating complex stored procedures."
+    },
+    "2": {
+      "role": "FullStack Developer",
+      "company": "Sudamericana de software Guayas (PPI Pharmacys)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Dec 2024 – Jun 2025",
+      "desc": "Development of critical features for a pharmacy application using React.Js and PostGraphile. Optimized PostgreSQL queries to enhance system performance."
+    },
+    "3": {
+      "role": "Fullstack Developer",
+      "company": "Sudamericana de software Guayas (ORigos Consult)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Jun 2024 – Dec 2024",
+      "desc": "Subscription management with Next.js and PostGraphile. Implementation of microservices architecture with Spring Boot, improving business ecosystem scalability."
+    },
+    "4": {
+      "role": "Backend Developer",
+      "company": "Sudamericana de software Guayas (CLARO)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Mar 2024 – Jun 2024",
+      "desc": "Development of endpoints in NestJS for internal vacation management. Implementation of Pipes for robust validation and data handling efficiency."
+    },
+    "5": {
+      "role": "FrontEnd Developer",
+      "company": "Sudamericana de software Guayas (Sasf)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Dec 2023 – Feb 2024",
+      "desc": "Participating in electronic billing development. Creating views in Angular 15 for tax, provider modules, and document generation."
+    },
+    "6": {
+      "role": "ETL / BI Developer",
+      "company": "Sudamericana de software Guayas (Bolivariano)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Dec 2023 – Feb 2024",
+      "desc": "Development of complex ETLs for sales analysis and generation of detailed reports in SQL Server Reporting Services (SSRS) and Integration Services (SSIS)."
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "name": "Full Name",
+    "email": "Email Address",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send. Please try again.",
+    "validation": {
+      "name": "Name must be at least 2 characters",
+      "email": "Invalid email address",
+      "subject": "Subject must be at least 5 characters",
+      "message": "Message must be at least 10 characters",
+      "consent": "You must accept the terms"
+    },
+    "consent": "I agree that my data will be processed to respond to my query."
+  },
+  "footer": {
+    "rights": "© 2024 Josué Caballero. All rights reserved."
+  }
+}
