@@ -22,7 +22,7 @@ export const projects: ProjectCard[] = [
     description: "Servidor de autenticación robusto basado en JWT para aplicaciones empresariales.",
     techStack: ["Node.js", "Express", "JWT", "PostgreSQL"],
     imageUrl: "/jwt.png",
-    repoUrl: "https://github.com/ronaldbermudezb97-ops/jwt-auth-server",
+    repoUrl: "https://github.com/JosueGS14XD/jwt-auth-server",
     status: "online"
   },
   {
@@ -30,7 +30,7 @@ export const projects: ProjectCard[] = [
     description: "Microservicio especializado en la gestión segura de tokens y autorización de usuarios.",
     techStack: ["Spring Boot", "JWT", "Docker", "PostgreSQL"],
     imageUrl: "/Grapqhl.png",
-    repoUrl: "https://github.com/ronaldbermudezb97-ops/jwt-auth-server",
+    repoUrl: "https://github.com/JosueGS14XD/jwt-auth-server",
     status: "online"
   }
 ]
