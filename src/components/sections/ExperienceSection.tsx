@@ -7,11 +7,13 @@ import { cn } from '@/utils/cn'
 import { useTranslation } from 'react-i18next'
 import { useMounted } from '@/hooks/useMounted'
 import { SkeletonCard, SkeletonCircle } from '@/components/ui/Skeleton'
+import { useAppStore } from '@/store/useAppStore'
 
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const pathRef = useRef<SVGLineElement>(null)
   const { t } = useTranslation()
+  const { locale } = useAppStore()
   const mounted = useMounted()
 
   useGSAP(() => {

@@ -2,75 +2,35 @@ import type { ProjectCard } from '@/types'
 
 export const projects: ProjectCard[] = [
   {
-    title: "Dashboard de Analítica",
-    description: "Panel interactivo con gráficas en tiempo real, filtros avanzados y exportación de datos.",
-    techStack: ["React", "TypeScript", "Recharts", "Zustand", "React Query"],
-    imageUrl: "/analisis.png",
-    liveUrl: "https://demo-analytics.com",
-    repoUrl: "https://github.com/ronaldpreciado/analytics-dashboard",
-    status: "online"
-  },
-  {
-    title: "E-commerce Platform",
-    description: "Tienda completa con catálogo, carrito persistente, checkout y pasarela de pago Stripe.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Context API"],
+    title: "CrossFit Ragnarok",
+    description: "Aplicación interactiva para gestión y seguimiento de entrenamientos en centros de CrossFit.",
+    techStack: ["React", "TypeScript", "Vercel", "Tailwind CSS"],
     imageUrl: "/ecommerce.png",
-    liveUrl: "https://demo-ecommerce.com",
-    repoUrl: "https://github.com/ronaldpreciado/ecommerce-stripe",
+    liveUrl: "https://crossfit-raganarok-front.vercel.app/",
     status: "online"
   },
   {
-    title: "Design System / UI Library",
-    description: "Librería de componentes reutilizables documentada con Storybook y testeada con Jest.",
-    techStack: ["React", "Storybook", "CSS Modules", "Jest", "Chromatic"],
-    imageUrl: "/Library.png",
-    liveUrl: "https://ui-library-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/ui-library",
+    title: "SG Col Pro - Limpieza AC",
+    description: "Plataforma de servicios para gestión de limpieza y mantenimiento de aires acondicionados.",
+    techStack: ["Next.js", "TypeScript", "Vercel", "Tailwind CSS"],
+    imageUrl: "/analisis.png",
+    liveUrl: "https://sgcolpro.vercel.app/",
     status: "online"
   },
   {
-    title: "API REST with Auth",
-    description: "CRUD de usuarios, autenticación JWT + refresh tokens, roles y documentación Swagger.",
-    techStack: ["Node.js", "Express", "PostgreSQL", "JWT", "Prisma"],
+    title: "JWT Auth Server Core",
+    description: "Servidor de autenticación robusto basado en JWT para aplicaciones empresariales.",
+    techStack: ["Node.js", "Express", "JWT", "PostgreSQL"],
     imageUrl: "/jwt.png",
-    liveUrl: "https://api-auth-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/auth-api",
+    repoUrl: "https://github.com/ronaldbermudezb97-ops/jwt-auth-server",
     status: "online"
   },
   {
-    title: "Microservices Messaging",
-    description: "Sistema de órdenes con cola de mensajes RabbitMQ y arquitectura distribuida con Docker.",
-    techStack: ["Python", "Node.js", "RabbitMQ", "Docker", "Redis"],
-    imageUrl: "/RabbitMQ.png",
-    liveUrl: "https://microservices-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/messaging-service",
-    status: "pending"
-  },
-  {
-    title: "GraphQL API",
-    description: "API GraphQL con suscripciones en tiempo real, queries optimizadas y MongoDB.",
-    techStack: ["Apollo Server", "Node.js", "WebSockets", "MongoDB", "DataLoader"],
+    title: "Security & Auth Microservice",
+    description: "Microservicio especializado en la gestión segura de tokens y autorización de usuarios.",
+    techStack: ["Spring Boot", "JWT", "Docker", "PostgreSQL"],
     imageUrl: "/Grapqhl.png",
-    liveUrl: "https://graphql-api-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/graphql-server",
-    status: "online"
-  },
-  {
-    title: "Project Management SaaS",
-    description: "Aplicación tipo Trello con tableros drag & drop y colaboración en tiempo real.",
-    techStack: ["Next.js", "GraphQL", "Prisma", "Socket.io", "PostgreSQL"],
-    imageUrl: "/tablero.png",
-    liveUrl: "https://saas-pm-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/trello-clone",
-    status: "online"
-  },
-  {
-    title: "Real-time Chat App",
-    description: "Mensajería instantánea con canales, DMs y notificaciones push usando WebSockets.",
-    techStack: ["React", "Node.js", "Socket.io", "Redis", "PostgreSQL"],
-    imageUrl: "/mensaje.png",
-    liveUrl: "https://chat-realtime-demo.com",
-    repoUrl: "https://github.com/ronaldpreciado/realtime-chat",
+    repoUrl: "https://github.com/ronaldbermudezb97-ops/jwt-auth-server",
     status: "online"
   }
 ]

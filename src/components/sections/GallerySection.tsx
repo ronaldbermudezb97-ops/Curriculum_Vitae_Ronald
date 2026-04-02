@@ -1,12 +1,16 @@
 import { useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useGSAP } from '@gsap/react'
 import { gsap, ScrollTrigger, ScrollToPlugin } from '@/utils/gsapConfig'
 import { skillCards } from '@/data/skills'
 import { Badge } from '@/components/ui/Badge'
 import { cn } from '@/utils/cn'
 import { useMounted } from '@/hooks/useMounted'
+import { useAppStore } from '@/store/useAppStore'
 
 export function GallerySection() {
+  const { t } = useTranslation()
+  const { locale } = useAppStore()
   const sectionRef   = useRef<HTMLElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -134,7 +138,7 @@ export function GallerySection() {
         {/* Header (Animado por GSAP) */}
         <div className="skills-header flex flex-col items-center mb-8 md:mb-12 shrink-0 opacity-0 invisible">
           <h2 className="text-4xl md:text-6xl font-montserrat font-bold text-primary tracking-tighter">
-            Habilidades
+            {t('skills.title')}
           </h2>
           <div className="w-24 h-1 bg-primary/20 rounded-full mt-6 overflow-hidden">
             <div 
@@ -182,22 +186,22 @@ export function GallerySection() {
                   key={skillCard.id}
                   className={cn(
                     'skill-card-stack absolute inset-0',
-                    'bg-card/40 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-14 border-2 border-white/20 shadow-2xl flex flex-col overflow-hidden',
-                    'hover:border-white/60 transition-colors duration-500',
+                    'bg-card/60 backdrop-blur-3xl rounded-[2.5rem] p-8 md:p-14 border-2 border-border/50 shadow-2xl flex flex-col overflow-hidden',
+                    'hover:border-primary/30 transition-colors duration-500',
                     activeIndex === index && 'animate-border-glow'
                   )}
                 >
                   <div 
-                    className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] blur-[150px] rounded-full opacity-30 pointer-events-none"
+                    className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] blur-[150px] rounded-full opacity-20 pointer-events-none"
                     style={{ backgroundColor: skillCard.accentColor }}
                   />
                   
                   <div className="relative z-10 flex flex-col lg:flex-row gap-8 h-full items-center lg:items-center">
                     <div className="flex flex-col items-center lg:items-start lg:w-[40%] flex-shrink-0 gap-6">
                       <div className="space-y-4">
-                        <h3 className="text-4xl md:text-6xl font-bold font-montserrat tracking-tight leading-[0.9] text-white">
-                          {skillCard.title.split(' & ').map((part, i) => (
-                            <span key={i} className="block last:opacity-60">{part}</span>
+                        <h3 className="text-4xl md:text-6xl font-bold font-montserrat tracking-tight leading-[0.9] text-foreground">
+                          {t(`skills.${skillCard.id}.title`).split(' & ').map((part, i) => (
+                            <span key={i} className="block last:opacity-50">{part}</span>
                           ))}
                         </h3>
                       </div>
@@ -206,12 +210,13 @@ export function GallerySection() {
                     <div className="hidden lg:block w-px h-[70%] bg-gradient-to-b from-transparent via-border/40 to-transparent" />
 
                     <div className="flex-1 w-full flex flex-col gap-6 overflow-y-auto pr-6 custom-scrollbar h-full justify-center">
-                      {skillCard.items.map((item) => (
-                        <div key={item.category} className="space-y-4">
-                          <h4 className="text-xs font-black text-primary uppercase tracking-[0.3em]">{item.category}</h4>
-                          <div className="flex flex-wrap gap-3">
+                      {skillCard.items.map((item, idx) => (
+                        <div key={idx} className="space-y-4">
+                          <h4 className="text-xs font-black text-primary uppercase tracking-[0.3em]">
+                            {t(`skills.${skillCard.id}.cat${idx + 1}`)}
+                          </h4>                          <div className="flex flex-wrap gap-3">
                             {item.skills.map((skill) => (
-                              <Badge key={skill} className="bg-white/5 hover:bg-white/20 text-white/50 border-white/10 px-4 py-2 rounded-2xl">
+                              <Badge key={skill} className="bg-primary/5 hover:bg-primary/10 text-secondary border-primary/10 px-4 py-2 rounded-2xl transition-all">
                                 {skill}
                               </Badge>
                             ))}

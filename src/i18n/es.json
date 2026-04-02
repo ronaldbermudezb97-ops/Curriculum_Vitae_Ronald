@@ -3,9 +3,9 @@
     "welcome": "Bienvenido a mi perfil"
   },
   "hero": {
-    "name": "Ronald Isaias Preciado Bermúdez",
-    "role": "Ingeniero en Software",
-    "bio": "Ingeniero de Software con experiencia sólida participando en la migración y desarrollo de soluciones tecnológicas. Cuento con dominio de herramientas tanto en Frontend como en Backend y gestión de bases de datos. Profesional orientado al trabajo en equipo y a la mejora continua, que busca integrarse en proyectos desafiantes con retos técnicos que impulsen mi crecimiento profesional y aporten valor estratégico a la organización.",
+    "name": "Josué Steven Gallegos Silva",
+    "role": "Ingeniero de Software FullStack",
+    "bio": "Ingeniero de Software con amplia trayectoria en la modernización de sistemas empresariales. Especializado en arquitecturas de Microservicios y Microfrontends utilizando tecnologías de vanguardia como React.js, .NET 6, NestJS y Spring Boot. Experto en la optimización de bases de datos y el diseño de soluciones escalables para el sector bancario y comercial.",
     "cta": "Contáctame"
   },
   "nav": {
@@ -13,50 +13,46 @@
     "projects": "Proyectos",
     "skills": "Habilidades",
     "experience": "Experiencia",
+    "references": "Referencias",
     "contact": "Contacto"
   },
   "section": {
     "about": "No es suficiente que el código funcione",
     "experience": "Experiencia Profesional",
     "skills": "Habilidades Técnicas",
-    "projects": "Proyectos Destacados",
+    "projects": "Proyectos Desplegados",
     "contact": "Contáctame",
     "gallery": "Galería",
     "companies": "Empresas",
     "references": "Referencias"
   },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Arrastra para explorar mis capacidades técnicas",
+    "1": { "title": "Lenguajes & Core", "cat1": "Lenguajes", "cat2": "Entornos de Ejecución" },
+    "2": { "title": "Frameworks & Backend", "cat1": ".NET", "cat2": "Java", "cat3": "Node.js" },
+    "3": { "title": "Frameworks & Frontend", "cat1": "React", "cat2": "Vue.js", "cat3": "Angular" },
+    "4": { "title": "Bases de Datos", "cat1": "SQL", "cat2": "NoSQL", "cat3": "ORM" },
+    "5": { "title": "DevOps & Cloud", "cat1": "Cloud", "cat2": "Containers", "cat3": "CI/CD" },
+    "6": { "title": "Herramientas & Métodos", "cat1": "Control de Versiones", "cat2": "Metodologías", "cat3": "Testing" },
+    "7": { "title": "Arquitectura & Patrones", "cat1": "Arquitecturas", "cat2": "Patrones de Diseño", "cat3": "Principios & Metodologías" }
+  },
   "projects": {
     "1": {
-      "title": "Dashboard de Analítica",
-      "desc": "Panel interactivo con gráficas en tiempo real, filtros avanzados y exportación de Datos. Muestra dominio de estado complejo y UX."
+      "title": "CrossFit Ragnarok",
+      "desc": "Aplicación para gestión de entrenamientos y comunidad CrossFit. Demo interactiva disponible."
     },
     "2": {
-      "title": "E-commerce con Carrito y Pagos",
-      "desc": "Tienda completa: catálogo, carrito persistente, checkout y pasarela de pago Stripe. Demuestra flujos de usuario completos."
+      "title": "SG Col Pro - Climatización",
+      "desc": "Plataforma de servicios para limpieza y mantenimiento de aires acondicionados."
     },
     "3": {
-      "title": "Design System / UI Library",
-      "desc": "Librería de componentes reutilizables documentada con Storybook. Muy valorado por equipos de producto."
+      "title": "Auth Server Core",
+      "desc": "Servidor de autenticación funcional con JWT para seguridad en aplicaciones web."
     },
     "4": {
-      "title": "API REST con Auth Completa",
-      "desc": "CRUD de usuarios, autenticación JWT + refresh tokens, roles/permisos, rate limiting y documentación con Swagger."
-    },
-    "5": {
-      "title": "Microservicio con Mensajería",
-      "desc": "Sistema de órdenes o notificaciones con cola de mensajes RabbitMQ. Muestra conocimiento de arquitecturas distribuidas."
-    },
-    "6": {
-      "title": "GraphQL API con Suscripciones",
-      "desc": "API GraphQL con queries, mutations y suscripciones en tiempo real. Ideal para diferenciarse de APIs REST clásicas."
-    },
-    "7": {
-      "title": "SaaS de Gestión de Proyectos",
-      "desc": "App tipo Trello/Notion con tableros, drag & drop, colaboración en tiempo real y multi-tenancy."
-    },
-    "8": {
-      "title": "Chat en Tiempo Real",
-      "desc": "Mensajería tipo Slack: canales, DMs, notificaciones push y historial paginado. Demuestra dominio de WebSockets."
+      "title": "Security Microservice",
+      "desc": "Microservicio especializado en autorización y gestión de tokens de seguridad."
     },
     "status": {
       "online": "En línea",
@@ -68,39 +64,46 @@
   },
   "experience": {
     "1": {
-      "role": "Senior Software Engineer",
-      "company": "TechCorp Solutions",
-      "location": "Madrid, España",
+      "role": "Desarrollador FullStack",
+      "company": "Sudamericana de software Guayas (DIFARE)",
+      "location": "Guayaquil, Ecuador",
       "year": "Ago 2025 – Presente",
-      "desc": "Lidero el desarrollo de microservicios escalables utilizando .NET Core y React. Implementación de arquitecturas limpias y patrones de diseño. Mentoría de equipos junior y definición de estándares de código."
+      "desc": "Migración de portales .NET MVC hacia una arquitectura moderna de Microfrontends (React.js) y Microservicios (.NET 6). Gestión de SQL Server y creación de procesos almacenados complejos."
     },
     "2": {
-      "role": "Full Stack Developer",
-      "company": "InnovateTech",
-      "location": "Barcelona, España",
+      "role": "Desarrollador FullStack",
+      "company": "Sudamericana de software Guayas (PPI Pharmacys)",
+      "location": "Guayaquil, Ecuador",
       "year": "Dic 2024 – Jun 2025",
-      "desc": "Desarrollé aplicaciones web empresariales robustas. Migré sistemas legacy a tecnologías modernas. Optimicé la performance, reduciendo los tiempos de carga en un 40%."
+      "desc": "Desarrollo de funcionalidades críticas para aplicativo de farmacias utilizando React.Js y PostGraphile. Optimización de consultas PostgreSQL para mejorar el rendimiento del sistema."
     },
     "3": {
-      "role": "Backend Developer",
-      "company": "DataFlow Systems",
-      "location": "Valencia, España",
+      "role": "Desarrollador Fullstack",
+      "company": "Sudamericana de software Guayas (ORigos Consult)",
+      "location": "Guayaquil, Ecuador",
       "year": "Jun 2024 – Dic 2024",
-      "desc": "Diseñé e implementé APIs RESTful de alto rendimiento. Integración con sistemas de terceros y optimización de consultas de base de datos. Implementé estrategias de caching que redujeron la carga en un 50%."
+      "desc": "Gestión de suscripciones con Next.js y PostGraphile. Implementación de arquitectura de microservicios con Spring Boot, mejorando la escalabilidad del ecosistema empresarial."
     },
     "4": {
-      "role": "Frontend Developer",
-      "company": "WebSolutions Inc",
-      "location": "Sevilla, España",
+      "role": "Desarrollador Backend",
+      "company": "Sudamericana de software Guayas (CLARO)",
+      "location": "Guayaquil, Ecuador",
       "year": "Mar 2024 – Jun 2024",
-      "desc": "Desarrollé interfaces de usuario modernas y responsivas. Implementé animaciones complejas y optimicé UX de la plataforma colaborando estrechamente con diseñadores."
+      "desc": "Desarrollo de endpoints en NestJS para la gestión de vacaciones internas. Implementación de Pipes para validaciones robustas y eficiencia en el manejo de datos."
     },
     "5": {
-      "role": "Junior Software Developer",
-      "company": "StartUpTech",
-      "location": "Málaga, España",
+      "role": "Desarrollador FrontEnd",
+      "company": "Sudamericana de software Guayas (Sasf)",
+      "location": "Guayaquil, Ecuador",
       "year": "Dic 2023 – Feb 2024",
-      "desc": "Desarrollé features completas en aplicaciones web siguiendo buenas prácticas. Participé activamente en code reviews e implementé tests unitarios logrando alta cobertura de testing."
+      "desc": "Participación en el desarrollo de facturación electrónica. Creación de vistas en Angular 15 para módulos de impuestos, proveedores y generación de documentos."
+    },
+    "6": {
+      "role": "Desarrollador de ETL / BI",
+      "company": "Sudamericana de software Guayas (Bolivariano)",
+      "location": "Guayaquil, Ecuador",
+      "year": "Dic 2023 – Feb 2024",
+      "desc": "Desarrollo de ETLs complejos para análisis de ventas y generación de reportes detallados en SQL Server Reporting Services (SSRS) e integration Services (SSIS)."
     }
   },
   "contact": {
@@ -112,9 +115,17 @@
     "submit": "Enviar mensaje",
     "sending": "Enviando...",
     "success": "¡Mensaje enviado correctamente!",
-    "error": "Error al enviar. Intenta de nuevo."
+    "error": "Error al enviar. Intenta de nuevo.",
+    "validation": {
+      "name": "El nombre debe tener al menos 2 caracteres",
+      "email": "Correo electrónico inválido",
+      "subject": "El asunto debe tener al menos 5 caracteres",
+      "message": "El mensaje debe tener al menos 10 caracteres",
+      "consent": "Debes aceptar los términos"
+    },
+    "consent": "Acepto que mis datos sean procesados para responder a mi consulta."
   },
   "footer": {
-    "rights": "© 2024 Ronald Preciado. Todos los derechos reservados."
+    "rights": "© 2024 Josué Caballero. Todos los derechos reservados."
   }
 }

@@ -1,7 +1,7 @@
 import type { HeroData } from '@/types'
 
 export const heroData: HeroData = {
-  name: "Ronald Isaias Preciado Bermúdez",
+  name: "Josué Steven Gallegos Silva",
   role: "hero.role",
   bio: "hero.bio",
   ctaLabel: "hero.cta",
@@ -10,18 +10,18 @@ export const heroData: HeroData = {
   social: [
     {
       label: "GitHub",
-      href: "https://github.com/ronaldpreciado",
+      href: "https://github.com/JosueGS14XD",
       icon: "github"
     },
     {
       label: "LinkedIn",
-      href: "https://linkedin.com/in/ronaldpreciado",
+      href: "https://www.linkedin.com/in/josue-steven-gallegos-silva-2b007024a/",
       icon: "linkedin"
     },
     {
-      label: "YouTube",
-      href: "https://youtube.com/@ronaldpreciado",
-      icon: "youtube"
+      label: "Email",
+      href: "mailto:estevengallegos@hotmail.com",
+      icon: "gmail"
     }
   ]
 }

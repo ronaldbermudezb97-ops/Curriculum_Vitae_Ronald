@@ -6,11 +6,13 @@ import { cn } from '@/utils/cn'
 import { useTranslation } from 'react-i18next'
 import { useMounted } from '@/hooks/useMounted'
 import { SkeletonCard } from '@/components/ui/Skeleton'
+import { useAppStore } from '@/store/useAppStore'
 
 export function ProjectsSection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const { t } = useTranslation()
+  const { locale } = useAppStore()
   const mounted = useMounted()
 
   const scrollToIndex = (index: number) => {

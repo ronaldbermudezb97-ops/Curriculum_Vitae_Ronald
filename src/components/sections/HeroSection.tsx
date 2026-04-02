@@ -4,9 +4,11 @@ import { heroData } from '@/data/hero'
 import { Button } from '@/components/ui/Button'
 import { useMounted } from '@/hooks/useMounted'
 import { SkeletonText, SkeletonCircle } from '@/components/ui/Skeleton'
+import { useAppStore } from '@/store/useAppStore'
 
 export function HeroSection() {
   const { t } = useTranslation()
+  const { locale } = useAppStore()
   const mounted = useMounted()
 
   return (
@@ -74,7 +76,7 @@ export function HeroSection() {
           >
             <div className="relative">
               <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20">
-                <img src="/rename.png" alt="icon" className="w-full h-full object-cover" />
+                <img src="/josue.jpeg" alt="icon" className="w-full h-full object-cover" />
              
               </div>
               {/* Decorative elements */}

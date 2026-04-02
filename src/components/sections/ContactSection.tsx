@@ -10,22 +10,24 @@ import { sendContactEmail } from '@/services/emailService'
 import type { ContactFormData } from '@/types'
 import { useMounted } from '@/hooks/useMounted'
 import { SkeletonText } from '@/components/ui/Skeleton'
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  email: z.string().email('Correo electrónico inválido'),
-  subject: z.string().min(5, 'El asunto debe tener al menos 5 caracteres'),
-  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
-  consent: z.boolean().refine(val => val === true, 'Debes aceptar los términos'),
-})
-
-type ContactForm = z.infer<typeof contactSchema>
+import { useAppStore } from '@/store/useAppStore'
 
 export function ContactSection() {
   const { t } = useTranslation()
+  const { locale } = useAppStore()
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const mounted = useMounted()
+
+  const contactSchema = z.object({
+    name: z.string().min(2, t('contact.validation.name')),
+    email: z.string().email(t('contact.validation.email')),
+    subject: z.string().min(5, t('contact.validation.subject')),
+    message: z.string().min(10, t('contact.validation.message')),
+    consent: z.boolean().refine(val => val === true, t('contact.validation.consent')),
+  })
+
+  type ContactForm = z.infer<typeof contactSchema>
 
   const {
     register,
@@ -108,7 +110,8 @@ export function ContactSection() {
                       {...register('name')}
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder={t('contact.name')}
+                      className="w-full px-4 py-3 border border-border bg-bg text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                       disabled={status === 'submitting'}
                     />
                     {errors.name && (
@@ -124,7 +127,8 @@ export function ContactSection() {
                       {...register('email')}
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder={t('contact.email')}
+                      className="w-full px-4 py-3 border border-border bg-bg text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                       disabled={status === 'submitting'}
                     />
                     {errors.email && (
@@ -141,7 +145,8 @@ export function ContactSection() {
                     {...register('subject')}
                     type="text"
                     id="subject"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder={t('contact.subject')}
+                    className="w-full px-4 py-3 border border-border bg-bg text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                     disabled={status === 'submitting'}
                   />
                   {errors.subject && (
@@ -157,7 +162,8 @@ export function ContactSection() {
                     {...register('message')}
                     id="message"
                     rows={5}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                    placeholder={t('contact.message')}
+                    className="w-full px-4 py-3 border border-border bg-bg text-primary rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none outline-none transition-all"
                     disabled={status === 'submitting'}
                   />
                   {errors.message && (
@@ -170,11 +176,11 @@ export function ContactSection() {
                     {...register('consent')}
                     type="checkbox"
                     id="consent"
-                    className="mt-1"
+                    className="mt-1 accent-primary"
                     disabled={status === 'submitting'}
                   />
-                  <label htmlFor="consent" className="text-sm text-muted-foreground">
-                    Acepto que mis datos sean procesados para responder a mi consulta.
+                  <label htmlFor="consent" className="text-sm text-secondary">
+                    {t('contact.consent')}
                   </label>
                 </div>
                 {errors.consent && (
@@ -184,7 +190,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full"
+                  className="w-full bg-primary text-bg font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all"
                   disabled={status === 'submitting'}
                 >
                   {status === 'submitting' ? t('contact.sending') : t('contact.submit')}

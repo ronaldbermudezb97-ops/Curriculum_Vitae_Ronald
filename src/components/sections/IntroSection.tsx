@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
+import { useAppStore } from '@/store/useAppStore'
+
 export function IntroSection() {
   const { t } = useTranslation()
+  const { locale } = useAppStore()
 
   const container = {
     hidden: {},
