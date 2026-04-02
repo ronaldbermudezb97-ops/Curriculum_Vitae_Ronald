@@ -52,9 +52,9 @@ export function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
-              <span className="text-bg font-bold text-sm">JC</span>
+              <span className="text-bg font-bold text-sm">JG</span>
             </div>
-            <span className="font-montserrat font-bold text-primary">Josué Caballero</span>
+            <span className="font-montserrat font-bold text-primary">Josué Gallegos</span>
           </div>
 
           {/* Desktop Navigation */}
