@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css'
 import { I18nProvider } from '@/components/ui/I18nProvider'
+import { ThemeProvider } from '@/components/ui/ThemeProvider'
 
 export interface Props {
   title?: string
@@ -12,12 +13,32 @@ const { title = "Ronald Preciado — Ingeniero en Software", description, image 
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description || "Portfolio de Ronald Isaias Preciado Bermúdez, Ingeniero en Software especializado en desarrollo web y soluciones tecnológicas."} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Theme Initialization Script (Prevents FOUC) -->
+    <script is:inline>
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('portfolio-store')) {
+          const store = JSON.parse(localStorage.getItem('portfolio-store'));
+          if (store.state && store.state.theme) {
+            return store.state.theme;
+          }
+        }
+        return 'dark'; // Valor por defecto
+      };
+
+      const theme = getTheme();
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -44,7 +65,8 @@ const { title = "Ronald Preciado — Ingeniero en Software", description, image 
       Saltar al contenido principal
     </a>
 
-    <!-- I18n Provider for client-side initialization -->
+    <!-- Theme and I18n Providers for client-side initialization -->
+    <ThemeProvider client:only="react" />
     <I18nProvider client:load />
 
     <main id="main-content">
